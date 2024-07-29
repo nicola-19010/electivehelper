@@ -10,4 +10,8 @@ export class Slot{
         this.startTime = startTime;
         this.endTime = endTime;
     }
+
+    equals(slot: Slot): boolean{
+        return this.day === slot.day && this.period === slot.period;
+    }
 }

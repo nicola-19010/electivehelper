@@ -1,1 +1,23 @@
-<p>interactive-schedule works!</p>
+<table border="1" width="100%" style="border: 2px solid #8caedc;" class="Normal">
+
+    <tbody>
+        <tr style="background-color: #8caedc; color: #000066;">
+
+            <th width="10%">Periodo</th>
+
+            @for (day of days; track $index) {
+            <th width="15%">{{day}}</th>
+            }
+
+        </tr>
+
+        @for(period of periods; track $index){
+            <tr style="text-align: center; background-color: #B8DFFE;">
+                <td style="border : 1px solid #8caedc;font-size : 10px;">{{period.periodName}}<br>{{period.startTime}}<br>{{period.endTime}}</td>
+                @for(day of days; track $index){
+                    <td (click)="selectSlot(day,period)" style="border : 1px solid #8caedc;font-size : 10px; ">&nbsp;</td> 
+                }
+            </tr>
+        }
+    </tbody>
+</table>
