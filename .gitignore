@@ -1,0 +1,29 @@
+/.idea/
+/.vscode/
+/electivehelper-ui/.vscode/
+/electivehelper-ui/node_modules/
+
+/electivehelper-api/.idea/
+/electivehelper-api/.mvn/
+/electivehelper-api/.mvn/wrapper
+/electivehelper-api/target/
+
+
+# Compiled output
+/electivehelper-ui/dist
+/electivehelper-ui/tmp
+/electivehelper-ui/out-tsc
+/electivehelper-ui/bazel-out
+
+/electivehelper-ui/npm-debug.log
+/electivehelper-ui/yarn-error.log
+
+
+# Miscellaneous
+/electivehelper-ui/.angular/cache
+/electivehelper-ui.sass-cache/
+/electivehelper-ui/connect.lock
+/electivehelper-ui/coverage
+/electivehelper-ui/libpeerconnection.log
+/electivehelper-ui/testem.log
+/electivehelper-ui/typings
