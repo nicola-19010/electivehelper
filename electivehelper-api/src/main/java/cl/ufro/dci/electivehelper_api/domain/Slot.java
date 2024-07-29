@@ -10,7 +10,7 @@ import lombok.ToString;
 public class Slot {
     private String sloPeriod;
     private String sloDay;
-    private double sloInitialHour;
-    private double sloFinishHour;
+    private String sloInitialHour;
+    private String sloFinishHour;
     private String sloPlace;
 }

@@ -2,7 +2,6 @@ package cl.ufro.dci.electivehelper_api.data;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,8 +18,7 @@ public class ElectiveReader {
 
     public static ArrayList<Elective> readElectivePDF() {
         ArrayList<Elective> electiveList = new ArrayList<>();
-        
-
+    
         try (BufferedReader br = new BufferedReader(new InputStreamReader(
             new FileInputStream("electivehelper-api/src/main/resources/static/Electives.csv"),
             "UTF-8"))) {
@@ -50,22 +48,19 @@ public class ElectiveReader {
     }
 
     private static ArrayList<Slot> createSlots(String day, String hours, String place) {
-        List<Double> startHours = Arrays.asList(8.3, 9.4, 10.5, 12.0, 14.3, 15.4, 16.5, 18.0, 19.1, 20.2);
-        List<Double> finishHours = Arrays.asList(9.3, 10.4, 11.5, 13.0, 15.3, 16.4, 17.5, 19.0, 20.1, 21.2);
+        List<String> startHours = Arrays.asList("8:30", "9:40", "10:50", "12:00", "14:30", "15:40", "16:50", "18:00", "19:10", "20:20");
+        List<String> finishHours = Arrays.asList("9:30", "10:40", "11:50", "13:00", "15:30", "16:40", "17:50", "19:00", "20:10", "21:20");
 
-        // List<String> startHours = Arrays.asList("8:30", "9:40", "10:50", "12:00", "14:30", "15:40", "16:50", "18:00", "19:10", "20:20");
-        // List<String> finishHours = Arrays.asList("9:30", "10:40", "11:50", "13:00", "15:30", "16:40", "17:50", "19:00", "20:10", "21:20");
+        String[] electiveHours = hours.replaceAll(" ", "").split("-");
 
-        double[] electiveHours = getHours(hours);
-
-        double startHour = electiveHours[0];
-        double finishHour = electiveHours[1];
+        String startHour = electiveHours[0];
+        String finishHour = electiveHours[1];
 
         ArrayList<Slot> slots = new ArrayList<>();
 
-        if(startHour == 13.1) {
+        if(startHour.equals("13:10")) {
             slots.add(new Slot("Almuerzo", day, startHour, startHour + 1, place));
-            startHour = 14.3;
+            startHour = "14:30";
         }
 
         for(int i = startHours.indexOf(startHour); i <= finishHours.indexOf(finishHour); i++) {
@@ -73,21 +68,6 @@ public class ElectiveReader {
         }
 
         return slots;
-    }
-
-    private static double[] getHours (String input) {
-        Pattern hourPattern = Pattern.compile("[0-9][0-9.]*[0-9]", Pattern.CASE_INSENSITIVE);
-        Matcher hourMatcher = hourPattern.matcher(input.replaceAll(":","."));
-            
-        double[] hours = new double[2]; 
-        int counter = 0;
-
-        while (hourMatcher.find()) {
-            hours[counter] = Double.parseDouble(hourMatcher.group());
-            counter++;
-        }
-
-        return hours;
     }
 
     // private static void printElectiveLine(String[] values) {
