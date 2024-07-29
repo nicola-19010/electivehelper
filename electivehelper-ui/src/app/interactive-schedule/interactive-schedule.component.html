@@ -1,23 +1,27 @@
-<table border="1" width="100%" style="border: 2px solid #8caedc;" class="Normal">
-
+<table border="1" width="100%" class="Normal">
     <tbody>
-        <tr style="background-color: #8caedc; color: #000066;">
-
+        <tr class="header-row">
             <th width="10%">Periodo</th>
-
-            @for (day of days; track $index) {
-            <th width="15%">{{day}}</th>
-            }
-
+            <ng-container *ngFor="let day of days; let i = index">
+                <th width="15%">{{ day }}</th>
+            </ng-container>
         </tr>
 
-        @for(period of periods; track $index){
-            <tr style="text-align: center; background-color: #B8DFFE;">
-                <td style="border : 1px solid #8caedc;font-size : 10px;">{{period.periodName}}<br>{{period.startTime}}<br>{{period.endTime}}</td>
-                @for(day of days; track $index){
-                    <td (click)="selectSlot(day,period)" style="border : 1px solid #8caedc;font-size : 10px; ">&nbsp;</td> 
-                }
+        <ng-container *ngFor="let period of periods; let i = index">
+            <tr class="period-row">
+                <td class="period-cell">
+                    {{ period.periodName }}<br>{{ period.startTime }}<br>{{ period.endTime }}
+                </td>
+                <ng-container *ngFor="let day of days; let j = index">
+                    <td
+                        (click)="selectSlot(day, period)"
+                        [ngClass]="{
+                            'slot-cell': true,
+                            'selected-slot': isSlotSelected(day, period)
+                        }"
+                    >&nbsp;</td>
+                </ng-container>
             </tr>
-        }
+        </ng-container>
     </tbody>
 </table>

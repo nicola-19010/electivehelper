@@ -1,0 +1,39 @@
+.Normal {
+    border: 2px solid #4a90e2;
+    border-collapse: collapse;
+    max-width: 80%; /* Ajusta el ancho máximo de la tabla */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+}
+
+.header-row {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+.header-row th {
+    padding: 8px; /* Ajusta el padding según sea necesario */
+}
+
+.period-row {
+    text-align: center;
+    background-color: #e1f1ff;
+}
+
+.period-cell {
+    border: 1px solid #4a90e2;
+    padding: 8px; /* Ajusta el padding según sea necesario */
+    font-size: 11px; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: #333;
+}
+
+.slot-cell {
+    border: 1px solid #4a90e2;
+    padding: 8px; /* Ajusta el padding según sea necesario */
+    font-size: 11px; /* Ajusta el tamaño de la fuente según sea necesario */
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.selected-slot {
+    background-color: #d4edda; /* Color verde claro para el slot seleccionado */
+}

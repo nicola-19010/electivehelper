@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Period } from '../domain/period';
 import { Slot } from '../domain/slot';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-interactive-schedule',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './interactive-schedule.component.html',
   styleUrl: './interactive-schedule.component.css'
 })
@@ -35,6 +36,8 @@ export class InteractiveScheduleComponent {
     return false;
   }
 
-  
-
+  isSlotSelected(day: string, period: Period): boolean {
+    let slot = new Slot(period.periodName, day, period.startTime, period.endTime);
+    return this.selectedSlots.some(selectedSlot => selectedSlot.equals(slot));
+  }
 }
