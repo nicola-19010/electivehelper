@@ -16,5 +16,9 @@ public class ElectiveService {
             System.out.println(e);
         }
     }
+
+    public ArrayList<Elective> getAllElectives(){
+        return this.electiveList;
+    }
    
 }
