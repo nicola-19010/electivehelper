@@ -2,17 +2,17 @@
     <tbody>
         <tr class="header-row">
             <th width="10%">Periodo</th>
-            <ng-container *ngFor="let day of days; let i = index">
+            @for (day of days; track $index) {
                 <th width="15%">{{ day }}</th>
-            </ng-container>
+            }
         </tr>
 
-        <ng-container *ngFor="let period of periods; let i = index">
+        @for (period of periods; track $index) {
             <tr class="period-row">
                 <td class="period-cell">
                     {{ period.periodName }}<br>{{ period.startTime }}<br>{{ period.endTime }}
                 </td>
-                <ng-container *ngFor="let day of days; let j = index">
+                @for (day of days; track $index) {
                     <td
                         (click)="selectSlot(day, period)"
                         [ngClass]="{
@@ -20,8 +20,8 @@
                             'selected-slot': isSlotSelected(day, period)
                         }"
                     >&nbsp;</td>
-                </ng-container>
+                }
             </tr>
-        </ng-container>
+        }
     </tbody>
 </table>
