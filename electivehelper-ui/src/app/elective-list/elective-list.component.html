@@ -1,0 +1,30 @@
+<div class="elective-list-container">
+    <div class="elective-header">Lista de Electivos</div>
+
+    <div class="elective-filter">
+        <form [formGroup]="filterForm">
+            <label for="slider-periods">Filtrar por Periodos con Topón:</label>
+            <div class="datalist-container">
+                <input type="range" id="slider-periodos" min="0" max="3" step="1" formControlName="periods" />
+                <span>{{ filterForm.get('periods')?.value }}</span>
+            </div>
+
+            <br>
+            <label for="filter-modalidad">Modalidad:</label>
+            <select id="filter-modalidad" formControlName="modality">
+                <option value="all">Cualquiera</option>
+                <option value="presencial">Presencial</option>
+                <option value="online">Online</option>
+            </select>
+
+            <button type="button" (click)="aplyFilters">Buscar</button>
+        </form>
+    </div>
+
+    @for (elective of filteredElectives; track $index) {
+        <div class="elective-item">
+            <p>{{ elective.eleName }}</p>
+            <button (click)="selectElective(elective)">Seleccionar</button>
+        </div>
+    }
+</div>
