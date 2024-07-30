@@ -4,11 +4,12 @@ import { Slot } from '../domain/slot';
 import { CommonModule } from '@angular/common';
 import { Elective } from '../domain/elective';
 import { ElectiveService } from '../service/elective.service';
+import { ElectiveListComponent } from "../elective-list/elective-list.component";
 
 @Component({
   selector: 'app-interactive-schedule',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ElectiveListComponent],
   templateUrl: './interactive-schedule.component.html',
   styleUrl: './interactive-schedule.component.css'
 })

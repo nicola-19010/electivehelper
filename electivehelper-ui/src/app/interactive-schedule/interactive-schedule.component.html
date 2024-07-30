@@ -1,27 +1,36 @@
-<table border="1" width="100%" class="Normal">
-    <tbody>
-        <tr class="header-row">
-            <th width="10%">Periodo</th>
-            @for (day of days; track $index) {
-                <th width="15%">{{ day }}</th>
-            }
-        </tr>
-
-        @for (period of periods; track $index) {
-            <tr class="period-row">
-                <td class="period-cell">
-                    {{ period.periodName }}<br>{{ period.startTime }}<br>{{ period.endTime }}
-                </td>
-                @for (day of days; track $index) {
-                    <td
-                        (click)="selectSlot(day, period)"
-                        [ngClass]="{
-                            'slot-cell': true,
-                            'selected-slot': isSlotSelected(day, period)
-                        }"
-                    >&nbsp;</td>
+<div class="schedule-container">
+    <div class="table-container">
+        <table border="1" width="100%" class="Normal">
+            <tbody>
+                <tr class="header-row">
+                    <th width="10%">Periodo</th>
+                    @for (day of days; track $index) {
+                        <th width="15%">{{ day }}</th>
+                    }
+                </tr>
+        
+                @for (period of periods; track $index) {
+                    <tr class="period-row">
+                        <td class="period-cell">
+                            {{ period.periodName }}<br>{{ period.startTime }}<br>{{ period.endTime }}
+                        </td>
+                        @for (day of days; track $index) {
+                            <td
+                                (click)="selectSlot(day, period)"
+                                [ngClass]="{
+                                    'slot-cell': true,
+                                    'selected-slot': isSlotSelected(day, period)
+                                }"
+                            >&nbsp;</td>
+                        }
+                    </tr>
                 }
-            </tr>
-        }
-    </tbody>
-</table>
+            </tbody>
+            
+        </table>
+    </div>
+    <div class="elective-list-container">
+        <app-elective-list></app-elective-list>
+    </div>
+</div>
+

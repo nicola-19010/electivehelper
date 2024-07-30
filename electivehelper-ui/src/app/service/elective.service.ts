@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ElectiveService {
   private HttpClient: HttpClient;
 
-  private electiveUrl = 'http://localhost:8080/elective/';
+  private electiveUrl = 'http://localhost:8080/api/elective/';
 
   constructor(httpClient: HttpClient) {
     this.HttpClient = httpClient;
