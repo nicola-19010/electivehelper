@@ -1,58 +1,51 @@
-.elective-list-container {
-    flex: 1;
-    margin-left: 20px;
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
-    max-height: 100%; /* Asegura que el contenedor no exceda la altura disponible */
-  }
-  
-.elective-list-container {
-    border: 2px solid #4a90e2;
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 16px;
-    background-color: #ffffff;
-    max-width: 100%;+flex: 1;
-    margin-left: 20px;
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
-  }
+.elective-list-header {
+  background-color: #4a90e2;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
 
-  .elective-header {
-    background-color: #4a90e2;
-    color: #ffffff;
-    padding: 8px;
-    text-align: center;
-    border-bottom: 2px solid #4a90e2;
-  }
-  
-  .elective-item {
-    padding: 8px;
-    border-bottom: 1px solid #4a90e2;
-    cursor: pointer;
-  }
-  
-  .elective-item:hover {
-    background-color: #e1f1ff; /* Color de fondo al pasar el ratón */
-  }
-  
-  .elective-item:last-child {
-    border-bottom: none; /* Quitar el borde del último elemento */
-  }
-  
-  .elective-filter {
-    margin-bottom: 16px;
-  }
-  
-  .elective-filter label {
-    margin-right: 8px;
-  }
-  
-  .elective-filter select,
-  .elective-filter input {
-    padding: 4px;
-    border: 1px solid #4a90e2;
-    border-radius: 3px;
-  }
-  
-  .elective-filter select {
-    margin-right: 8px;
-  }
-  
+.elective-filter {
+  background-color: #e1f1ff;
+  padding: 10px;
+}
+
+.elective-items-container {
+  flex: 1;
+  overflow-y: auto;
+  height: calc(100vh - 150px); /* Altura disponible, ajustando el espacio ocupado por el filtro */
+}
+
+.elective-item {
+  border-bottom: 1px solid #4a90e2;
+  padding: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.elective-item p {
+  margin: 0;
+}
+
+.elective-item button {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.elective-item button:hover {
+  background-color: #357ABD;
+}
+
+.datalist-container {
+  display: flex;
+  align-items: center;
+}
+
+.datalist-container input[type="range"] {
+  margin-right: 10px;
+}

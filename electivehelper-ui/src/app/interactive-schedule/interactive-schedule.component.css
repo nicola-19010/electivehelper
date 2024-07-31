@@ -1,62 +1,69 @@
 .schedule-container {
   display: flex;
-  justify-content: space-between;
-  align-items: stretch; /* Asegura que los contenedores se estiren para llenar el espacio disponible */
-  height: 100%; /* Asegura que el contenedor ocupe toda la altura disponible */
+  height: 100vh;
+  overflow: hidden;
 }
 
+.table-container {
+  flex: 3;
+  overflow-y: hidden; /* Evitar el desplazamiento vertical */
+}
+
+.elective-list-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Ocultar el desbordamiento en el contenedor principal */
+  margin-left: 20px; /* Añade espacio entre la tabla y la lista de electivos */
+  /* xxxxxxxxxxx */
+  border: 2px solid #4a90e2; /* Mismo borde que la tabla */
+  border-radius: 5px; /* Opcional: añadir un poco de redondez a las esquinas */
   
-  .table-container {
-    flex: 3; /* Ajusta el tamaño de la tabla según sea necesario */
-    max-width: 80%;
-  }
-  
-  .elective-list-container {
-    flex: 1; /* Ajusta el tamaño del contenedor de la lista de electivos según sea necesario */
-    margin-left: 20px; /* Añade un espacio entre la tabla y la lista de electivos */
-    /* ajusta este css para que el elective list tenga largo hacia abajo del mismo porte que el inetractive schedule */
-    height: 100%;
-    overflow-y: auto;
-  }
-  
-  /* Los estilos originales de la tabla */
-  .Normal {
-    border: 2px solid #4a90e2;
-    border-collapse: collapse;
-    max-width: 100%; /* Ajusta el ancho máximo de la tabla */
-    margin: 0 auto; /* Centra la tabla horizontalmente */
-  }
-  
-  .header-row {
-    background-color: #4a90e2;
-    color: #ffffff;
-  }
-  
-  .header-row th {
-    padding: 8px; /* Ajusta el padding según sea necesario */
-  }
-  
-  .period-row {
-    text-align: center;
-    background-color: #e1f1ff;
-  }
-  
-  .period-cell {
-    border: 1px solid #4a90e2;
-    padding: 8px; /* Ajusta el padding según sea necesario */
-    font-size: 11px; /* Ajusta el tamaño de la fuente según sea necesario */
-    color: #333;
-  }
-  
-  .slot-cell {
-    border: 1px solid #4a90e2;
-    padding: 8px; /* Ajusta el padding según sea necesario */
-    font-size: 11px; /* Ajusta el tamaño de la fuente según sea necesario */
-    cursor: pointer;
-    background-color: #ffffff;
-  }
-  
-  .selected-slot {
-    background-color: #d4edda; /* Color verde claro para el slot seleccionado */
-  }
-  
+}
+
+/* Los estilos originales de la tabla */
+.Normal {
+  border: 2px solid #4a90e2;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.header-row {
+  background-color: #4a90e2;
+  color: #ffffff;
+}
+
+.header-row th {
+  padding: 8px;
+}
+
+.period-row {
+  text-align: center;
+  background-color: #e1f1ff;
+}
+
+.period-cell {
+  border: 1px solid #4a90e2;
+  padding: 8px;
+  font-size: 11px;
+  color: #333;
+}
+
+.slot-cell {
+  border: 1px solid #4a90e2;
+  padding: 8px;
+  font-size: 11px;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.selected-slot {
+  background-color: #d4edda;
+}
+
+.selected-elective {
+  margin-top: 20px;
+}
