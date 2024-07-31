@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ElectiveService } from '../service/elective.service';
 import { Elective } from '../domain/elective';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Slot } from '../domain/slot';
+import ElectiveManager from '../utils/ElectiveManager';
 
 @Component({
   selector: 'app-elective-list',
@@ -14,6 +16,7 @@ export class ElectiveListComponent {
 
   electiveList: Elective[] = [];
   filteredElectives: Elective[] = [];
+  @Input() selectedSlots: Slot[] = [];
   @Output() selectedElective = new EventEmitter<Elective>();
   selectedElectiveDetails: Elective | null = null;
 
@@ -43,7 +46,17 @@ export class ElectiveListComponent {
     });
   }
 
-  aplyFilters() {}
+  aplyFilters() {
+    const periods = this.filterForm.get('periods')?.value;
+    const modality = this.filterForm.get('modality')?.value;
+    console.log("periods: ", periods);
+    console.log("modality: ", modality);
+
+    let filteredByConflict = ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, periods);
+    let filteredByModality = ElectiveManager.getElectivesByModality(filteredByConflict, modality);
+    this.filteredElectives = filteredByModality;
+    console.log(filteredByModality);
+  }
 
   selectElective(elective: Elective) {
     this.selectedElective.emit(elective);
