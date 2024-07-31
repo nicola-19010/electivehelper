@@ -4,7 +4,11 @@ import { Slot } from '../domain/slot';
 import { CommonModule } from '@angular/common';
 import { Elective } from '../domain/elective';
 import { ElectiveService } from '../service/elective.service';
+<<<<<<< HEAD
 import { ElectiveListComponent } from "../elective-list/elective-list.component";
+=======
+import ElectiveManager from '../utils/ElectiveManager';
+>>>>>>> c50a7dea3447bfaa30c2f7484b129a9135a66b77
 
 @Component({
   selector: 'app-interactive-schedule',
@@ -18,7 +22,11 @@ export class InteractiveScheduleComponent {
   periods: Period[] = Period.getPeriods();
   selectedSlots: Slot[] = [];
   electiveList: Elective[] = [];
+<<<<<<< HEAD
   selectedElective: Elective | null = null;
+=======
+  mode:boolean = true;
+>>>>>>> c50a7dea3447bfaa30c2f7484b129a9135a66b77
 
   constructor(private electiveService: ElectiveService){}
 
@@ -32,6 +40,7 @@ export class InteractiveScheduleComponent {
       console.log('Slot removed: ',slot);
     }else {
       this.selectedSlots.push(slot);
+      console.log(this.selectedSlots.length);
       console.log('Slot added: ',slot);
     }
   }
@@ -53,11 +62,15 @@ export class InteractiveScheduleComponent {
 
   loadElectives() {
     this.electiveService.getAllElectives().subscribe({
-      next: (electives: Elective[]) => {this.electiveList = electives;},
+      next: (electives: Elective[]) => {
+        this.electiveList = electives;
+        console.log(electives);
+      },
       error: (error) => {console.error('Error loading electives: ', error);}
     });
   }
 
+<<<<<<< HEAD
   onElectiveSelected(elective: Elective) {
     this.selectedElective = elective;
     console.log('Selected elective: ', elective);
@@ -74,4 +87,48 @@ export class InteractiveScheduleComponent {
     return false;
   }
 
+=======
+  prueba() {
+    // if(this.mode) {
+    //   let aux = this.selectedSlots
+    //   this.selectedSlots = this.getAllSlots();
+
+    //   for (let slot of aux) {
+    //     this.removeSlot(slot);
+    //   }
+      
+    //   console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
+
+    // }else{
+    //   console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
+    // }
+    console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
+  }
+
+  cleanSlots() {
+    this.selectedSlots = [];
+  }
+
+  fillSlots(){
+    this.selectedSlots = this.getAllSlots();
+  }
+
+  getAllSlots() {
+    let slots: Slot[] = [];
+
+    this.days.forEach(day => {
+      this.periods.forEach(period => {
+        slots.push(new Slot(period.periodName, day, period.startTime, period.endTime));
+      })
+    })
+
+    return slots;
+  }
+
+  changeMode() {
+    this.mode = !this.mode;
+    this.cleanSlots();
+    console.log(this.mode);
+  }
+>>>>>>> c50a7dea3447bfaa30c2f7484b129a9135a66b77
 }

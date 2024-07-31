@@ -59,6 +59,7 @@
   background-color: #ffffff;
 }
 
+<<<<<<< HEAD
 .selected-slot {
   background-color: #d4edda;
 }
@@ -70,4 +71,28 @@
 .selected-elective {
   background-color: #ffff00; /* Color amarillo para el slot del electivo seleccionado */
   cursor: default; /* Hace que la celda no sea clickeable */
+=======
+.styled-button {
+    background-color: #4a90e2; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Padding alrededor del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano para indicar que es clickeable */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+.styled-button:hover {
+    background-color: #357ABD; /* Color de fondo al pasar el ratón */
+}
+
+.styled-button:active {
+    background-color: #2E5A91; /* Color de fondo al hacer clic */
+}
+
+.styled-button:focus {
+    outline: none; /* Quitar el borde de enfoque predeterminado */
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); /* Sombra de caja para enfoque accesible */
+>>>>>>> c50a7dea3447bfaa30c2f7484b129a9135a66b77
 }
