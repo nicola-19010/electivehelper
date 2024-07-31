@@ -2,6 +2,18 @@ import { Elective } from "../domain/elective";
 import { Slot } from "../domain/slot";
 
 export default class ElectiveManager {
+    static getElectivesByFreeSlotsWithNConflict(slotsSelected : Slot[], electives : Elective[]) {
+        let coincidencesElectives = new Map<Elective, number>();
+
+        electives.forEach((elective) => {
+            let nConflict = this.getNConflict(slotsSelected, elective.eleSlots);
+            coincidencesElectives.set(elective, nConflict);
+            
+        });
+
+        return coincidencesElectives;
+    }
+
     static getElectivesByNConflict(slotsSelected : Slot[], electives : Elective[], nConflict : number) {
         let coincidencesElectives : Array<Elective> = [];
 
@@ -26,17 +38,6 @@ export default class ElectiveManager {
         return coincidencesElectives;
     }
 
-    static getElectivesByFreeSlotsWithNConflict(slotsSelected : Slot[], electives : Elective[]) {
-        let coincidencesElectives = new Map<Elective, number>();
-
-        electives.forEach((elective) => {
-            let nConflict = this.getNConflict(slotsSelected, elective.eleSlots);
-            coincidencesElectives.set(elective, nConflict);
-            
-        });
-
-        return coincidencesElectives;
-    }
 
     static getNConflict(slotsSelected : Slot[], eleSlots : Slot[]){
         let nConflict = 0;
@@ -66,4 +67,19 @@ export default class ElectiveManager {
 
         return nConflict == conflictLimit;
     }
+
+    static getElectivesByModality(electives: Elective[], modality: string) {
+        let filteredElectives: Elective[] = [];
+
+        if(modality !== 'Cualquiera') {
+            electives.forEach((elective) => {
+                if (elective.eleMode === modality) {
+                    filteredElectives.push(elective);
+                }
+            });
+            return filteredElectives;
+        }
+        return electives;
+    }
+    
 }
