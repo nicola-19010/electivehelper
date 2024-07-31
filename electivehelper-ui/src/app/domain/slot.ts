@@ -1,17 +1,17 @@
 export class Slot{
-    period: string;
-    day: string;
+    sloPeriod: string;
+    sloDay: string;
     startTime: string;
     endTime: string;
 
     constructor(period: string, day: string, startTime: string, endTime: string){
-        this.period = period;
-        this.day = day;
+        this.sloPeriod = period;
+        this.sloDay = day;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
     equals(slot: Slot): boolean{
-        return this.day === slot.day && this.period === slot.period;
+        return this.sloDay === slot.sloDay && this.sloPeriod === slot.sloPeriod;
     }
 }

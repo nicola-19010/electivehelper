@@ -20,7 +20,7 @@
 
 
 # Miscellaneous
-/electivehelper-ui/.angular/cache/
+/electivehelper-ui/.angular/cache
 /electivehelper-ui.sass-cache/
 /electivehelper-ui/connect.lock
 /electivehelper-ui/coverage

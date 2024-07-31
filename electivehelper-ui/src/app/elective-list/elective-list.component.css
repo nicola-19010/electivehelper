@@ -1,0 +1,59 @@
+.elective-list-header {
+  background-color: #4a90e2;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+
+.elective-filter {
+  background-color: #e1f1ff;
+  padding: 10px;
+}
+
+.elective-items-container {
+  flex: 1;
+  overflow-y: auto;
+  height: calc(100vh - 150px); /* Altura disponible, ajustando el espacio ocupado por el filtro */
+}
+
+.elective-item {
+  border-bottom: 1px solid #4a90e2;
+  padding: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.elective-item p {
+  margin: 0;
+}
+
+.elective-item button {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.elective-item button:hover {
+  background-color: #357ABD;
+}
+
+.datalist-container {
+  display: flex;
+  align-items: center;
+}
+
+.datalist-container input[type="range"] {
+  margin-right: 10px;
+}
+
+.elective-details {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: #f7f8f8;
+}
