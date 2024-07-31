@@ -15,13 +15,18 @@
                             {{ period.periodName }}<br>{{ period.startTime }}<br>{{ period.endTime }}
                         </td>
                         @for (day of days; track $index) {
-                            <td
+                            @if (selectedElective && sameDayAndPeriod(selectedElective, day, period.periodName)) {
+                                <td class="selected-elective">{{selectedElective.eleName}}</td>   
+                            }@else {
+                                <td
                                 (click)="selectSlot(day, period)"
                                 [ngClass]="{
                                     'slot-cell': true,
                                     'selected-slot': isSlotSelected(day, period)
                                 }"
-                            >&nbsp;</td>
+                                >&nbsp;</td>
+                            }
+                            
                         }
                     </tr>
                 }
@@ -32,5 +37,7 @@
     <div class="elective-list-container">
         <app-elective-list (selectedElective)="onElectiveSelected($event)"></app-elective-list>
     </div>
+
+    
 </div>
 

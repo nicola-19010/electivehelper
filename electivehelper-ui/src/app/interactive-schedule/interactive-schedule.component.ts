@@ -14,7 +14,6 @@ import { ElectiveListComponent } from "../elective-list/elective-list.component"
   styleUrl: './interactive-schedule.component.css'
 })
 export class InteractiveScheduleComponent {
-
   days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   periods: Period[] = Period.getPeriods();
   selectedSlots: Slot[] = [];
@@ -61,5 +60,18 @@ export class InteractiveScheduleComponent {
 
   onElectiveSelected(elective: Elective) {
     this.selectedElective = elective;
+    console.log('Selected elective: ', elective);
   }
+
+  sameDayAndPeriod(elective: Elective, day: string, period: string) {
+    let periodNumber = period.replace("°","").trim();
+    for(let slot of elective.eleSlots){
+      let elePeriodNumber = slot.sloPeriod.replace("°","").trim();
+      if(elePeriodNumber == periodNumber && slot.sloDay == day){
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

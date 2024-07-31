@@ -19,7 +19,6 @@
   /* xxxxxxxxxxx */
   border: 2px solid #4a90e2; /* Mismo borde que la tabla */
   border-radius: 5px; /* Opcional: añadir un poco de redondez a las esquinas */
-  
 }
 
 /* Los estilos originales de la tabla */
@@ -66,4 +65,9 @@
 
 .selected-elective {
   margin-top: 20px;
+}
+
+.selected-elective {
+  background-color: #ffff00; /* Color amarillo para el slot del electivo seleccionado */
+  cursor: default; /* Hace que la celda no sea clickeable */
 }

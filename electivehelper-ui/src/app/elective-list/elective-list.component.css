@@ -49,3 +49,11 @@
 .datalist-container input[type="range"] {
   margin-right: 10px;
 }
+
+.elective-details {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: #f7f8f8;
+}
