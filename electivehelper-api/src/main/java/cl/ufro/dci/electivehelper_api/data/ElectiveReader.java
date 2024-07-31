@@ -59,13 +59,18 @@ public class ElectiveReader {
         ArrayList<Slot> slots = new ArrayList<>();
 
         if(startHour.equals("13:10")) {
-            slots.add(new Slot("Almuerzo", day, startHour, startHour + 1, place));
+            slots.add(new Slot("Alm", day, startHour, "14:10", place));
             startHour = "14:30";
         }
 
         for(int i = startHours.indexOf(startHour); i <= finishHours.indexOf(finishHour); i++) {
             slots.add(new Slot(String.valueOf(i + 1), day, startHours.get(i), finishHours.get(i), place));
+
+            if(finishHours.get(i).equals("13:00") && i + 1 <= finishHours.indexOf(finishHour)) {
+                slots.add(new Slot("Alm", day, "13:10", "14:10", place));
+            }
         }
+
 
         return slots;
     }
