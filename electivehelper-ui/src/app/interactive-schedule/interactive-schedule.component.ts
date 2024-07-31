@@ -19,7 +19,7 @@ export class InteractiveScheduleComponent {
   periods: Period[] = Period.getPeriods();
   selectedSlots: Slot[] = [];
   electiveList: Elective[] = [];
-  mode:boolean = true;
+  //mode:boolean = true;
 
   constructor(private electiveService: ElectiveService){}
 
@@ -77,9 +77,10 @@ export class InteractiveScheduleComponent {
     // }else{
     //   console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
     // }
-    console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
+    //console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
+    //console.log(ElectiveManager.getElectivesByFreeSlots(this.selectedSlots, this.electiveList, 1));
+    console.log(ElectiveManager.getElectivesByFreeSlotsWithNConflict(this.selectedSlots, this.electiveList));
   }
-
   cleanSlots() {
     this.selectedSlots = [];
   }
@@ -100,9 +101,9 @@ export class InteractiveScheduleComponent {
     return slots;
   }
 
-  changeMode() {
-    this.mode = !this.mode;
-    this.cleanSlots();
-    console.log(this.mode);
-  }
+  // changeMode() {
+  //   this.mode = !this.mode;
+  //   this.cleanSlots();
+  //   console.log(this.mode);
+  // }
 }

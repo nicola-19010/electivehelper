@@ -24,7 +24,7 @@
     padding: 8px; /* Ajusta el padding según sea necesario */
     font-size: 11px; /* Ajusta el tamaño de la fuente según sea necesario */
     color: #333;
-}
+} 
 
 .slot-cell {
     border: 1px solid #4a90e2;
@@ -32,6 +32,10 @@
     font-size: 11px; /* Ajusta el tamaño de la fuente según sea necesario */
     cursor: pointer;
     background-color: #ffffff;
+}
+
+.selected-slot {
+    background-color: #d4edd4;
 }
 
 .styled-button {

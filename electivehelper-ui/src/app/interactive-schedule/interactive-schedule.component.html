@@ -1,6 +1,6 @@
 <button class="styled-button" (click)="cleanSlots()">Limpiar horario</button>
 <button class="styled-button" (click)="fillSlots()">Llenar horario</button>
-<button class="styled-button" (click)="changeMode()">Cambiar modo</button>
+<!-- <button class="styled-button" (click)="changeMode()">Cambiar modo</button> -->
 <br><br>
 <table border="1" width="100%" class="Normal">
     <tbody>
@@ -22,9 +22,6 @@
                         [ngClass]="{
                             'slot-cell': true,
                             'selected-slot': isSlotSelected(day, period)
-                        }"
-                        [ngStyle]="{
-                            'background-color': isSlotSelected(day, period) ? (mode ? '#d4edd4' : '#edd4d4') : '#ffffff'
                         }"
                     >&nbsp;</td>
                 }
