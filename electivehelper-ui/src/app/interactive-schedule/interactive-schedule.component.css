@@ -1,33 +1,43 @@
+/* Elimina el scroll de la página */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Desactiva el scroll en la página */
+}
+
 .schedule-container {
   display: flex;
-  height: 100vh;
-  overflow: hidden;
+  flex-direction: row; 
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .table-container {
-  flex: 3;
-  overflow-y: hidden; /* Evitar el desplazamiento vertical */
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .elective-list-container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow: hidden; /* Ocultar el desbordamiento en el contenedor principal */
-  margin-left: 20px; /* Añade espacio entre la tabla y la lista de electivos */
-  /* xxxxxxxxxxx */
-  border: 2px solid #4a90e2; /* Mismo borde que la tabla */
-  border-radius: 5px; /* Opcional: añadir un poco de redondez a las esquinas */
+  overflow: hidden; /* Mantener oculto el scroll si el contenido se excede */
+  margin-left: 20px; /* Espacio entre la tabla y la lista de electivos */
+  border: 2px solid #4a90e2;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-/* Los estilos originales de la tabla */
+/* Asegúrate de que la tabla se ajuste al tamaño disponible */
 .Normal {
   border: 2px solid #4a90e2;
   border-collapse: collapse;
   width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
+  height: 100%;
+  table-layout: fixed; /* Asegurar que las celdas se ajusten al ancho disponible */
 }
 
 .header-row {
@@ -36,7 +46,8 @@
 }
 
 .header-row th {
-  padding: 8px;
+  padding: 4px; /* Reducir padding para ajustar más contenido */
+  font-size: 12px; /* Reducir tamaño de la fuente */
 }
 
 .period-row {
@@ -46,21 +57,21 @@
 
 .period-cell {
   border: 1px solid #4a90e2;
-  padding: 8px;
-  font-size: 11px;
+  padding: 4px; /* Reducir padding para ajustar más contenido */
+  font-size: 10px; /* Reducir tamaño de la fuente */
   color: #333;
 }
 
 .slot-cell {
   border: 1px solid #4a90e2;
-  padding: 8px;
-  font-size: 11px;
+  padding: 4px; /* Reducir padding para ajustar más contenido */
+  font-size: 10px; /* Reducir tamaño de la fuente */
   cursor: pointer;
   background-color: #ffffff;
 }
 
 .selected-slot {
-    background-color: #d4edd4;
+  background-color: #d4edd4;
 }
 
 .selected-elective {
@@ -70,26 +81,25 @@
 }
 
 .styled-button {
-    background-color: #4a90e2; /* Color de fondo */
-    color: #ffffff; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Padding alrededor del texto */
-    font-size: 16px; /* Tamaño de la fuente */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor de mano para indicar que es clickeable */
-    transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+  background-color: #4a90e2; /* Color de fondo */
+  color: #ffffff; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Padding alrededor del texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de mano para indicar que es clickeable */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
 }
 
 .styled-button:hover {
-    background-color: #357ABD; /* Color de fondo al pasar el ratón */
+  background-color: #357ABD; /* Color de fondo al pasar el ratón */
 }
 
 .styled-button:active {
-    background-color: #2E5A91; /* Color de fondo al hacer clic */
+  background-color: #2E5A91; /* Color de fondo al hacer clic */
 }
 
 .styled-button:focus {
-    outline: none; /* Quitar el borde de enfoque predeterminado */
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); /* Sombra de caja para enfoque accesible */
+  outline: none; /* Quitar el borde de enfoque predeterminado */
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); /* Sombra de caja para enfoque accesible */
 }
-

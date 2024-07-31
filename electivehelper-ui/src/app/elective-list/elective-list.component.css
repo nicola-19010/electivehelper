@@ -13,7 +13,7 @@
 .elective-items-container {
   flex: 1;
   overflow-y: auto;
-  height: calc(100vh - 150px); /* Altura disponible, ajustando el espacio ocupado por el filtro */
+  height: calc(100vh - 250px); /* Altura disponible, ajustando el espacio ocupado por el filtro */
 }
 
 .elective-item {
@@ -57,3 +57,4 @@
   border-radius: 5px;
   background-color: #f7f8f8;
 }
+

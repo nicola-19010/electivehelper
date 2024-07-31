@@ -1,6 +1,8 @@
+<body>
 <button class="styled-button" (click)="cleanSlots()">Limpiar horario</button>
 <button class="styled-button" (click)="fillSlots()">Llenar horario</button>
 <button class="styled-button" (click)="prueba()">Prueba</button>
+<br><br>
 <!-- <button class="styled-button" (click)="changeMode()">Cambiar modo</button> -->
 <div class="schedule-container">
     <div class="table-container">
@@ -9,7 +11,7 @@
                 <tr class="header-row">
                     <th width="10%">Periodo</th>
                     @for (day of days; track $index) {
-                        <th width="15%">{{ day }}</th>
+                        <th width="20%">{{ day }}</th>
                     }
                 </tr>
         
@@ -29,13 +31,11 @@
                                     'selected-slot': isSlotSelected(day, period)
                                 }"
                                 >&nbsp;</td>
-                            }
-                            
+                            } 
                         }
                     </tr>
                 }
             </tbody>
-            
         </table>
     </div>
     <div class="elective-list-container">
@@ -43,3 +43,5 @@
     </div>
 </div>
 
+
+</body>
