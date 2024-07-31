@@ -1,7 +1,7 @@
 /.idea/
 /.vscode/
-/electivehelper-ui/.vscode/
-/electivehelper-ui/node_modules/
+/electivehelper-ui/.vscode
+/electivehelper-ui/node_modules
 
 /electivehelper-api/.idea/
 /electivehelper-api/.mvn/
@@ -20,7 +20,7 @@
 
 
 # Miscellaneous
-/electivehelper-ui/.angular/cache
+/electivehelper-ui/.angular
 /electivehelper-ui.sass-cache/
 /electivehelper-ui/connect.lock
 /electivehelper-ui/coverage

@@ -29,7 +29,7 @@ export class InteractiveScheduleComponent {
   }
 
   selectSlot(day: string, period: Period) {
-    let slot = new Slot(period.periodName, day, period.startTime, period.endTime);
+    let slot = new Slot(Period.getPeriodNumber(period), day, period.startTime, period.endTime);
     if(this.removeSlot(slot)) {
       console.log('Slot removed: ',slot);
     }else {
@@ -49,7 +49,7 @@ export class InteractiveScheduleComponent {
   }
 
   isSlotSelected(day: string, period: Period): boolean {
-    let slot = new Slot(period.periodName, day, period.startTime, period.endTime);
+    let slot = new Slot(Period.getPeriodNumber(period), day, period.startTime, period.endTime);
     return this.selectedSlots.some(selectedSlot => selectedSlot.equals(slot));
   }
 
