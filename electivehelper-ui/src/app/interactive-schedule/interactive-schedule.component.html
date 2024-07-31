@@ -30,7 +30,7 @@
         </table>
     </div>
     <div class="elective-list-container">
-        <app-elective-list></app-elective-list>
+        <app-elective-list (selectedElective)="onElectiveSelected($event)"></app-elective-list>
     </div>
 </div>
 

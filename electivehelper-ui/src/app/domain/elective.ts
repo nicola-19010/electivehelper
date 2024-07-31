@@ -14,4 +14,9 @@ export class Elective{
      this.eleMode = eleMode;
      this.eleSlots = eleSlots;
  }
+
+ equals(elective: Elective): boolean{
+    return this.eleCode === elective.eleCode && this.eleModule === elective.eleModule;
+ }
+
 }

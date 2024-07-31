@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ElectiveService } from '../service/elective.service';
 import { Elective } from '../domain/elective';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +14,10 @@ export class ElectiveListComponent {
 
   electiveList: Elective[] = [];
   filteredElectives: Elective[] = [];
-  selectedElective: Elective | null = null;
+  @Output() selectedElective = new EventEmitter<Elective>();
+  selectedElectiveDetails: Elective | null = null;
+
+  
 
   filterForm: FormGroup = new FormGroup({
     periods: new FormControl(0),
@@ -43,8 +46,9 @@ export class ElectiveListComponent {
   aplyFilters() {}
 
   selectElective(elective: Elective) {
-    this.selectedElective = elective;
-    console.log('Selected elective: ', elective);
+    this.selectedElective.emit(elective);
+    this.selectedElectiveDetails = elective;
+    console.log("electivo seleccionado: ",this.selectedElectiveDetails)
   }
 
 }

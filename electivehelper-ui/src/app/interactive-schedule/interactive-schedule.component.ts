@@ -19,6 +19,7 @@ export class InteractiveScheduleComponent {
   periods: Period[] = Period.getPeriods();
   selectedSlots: Slot[] = [];
   electiveList: Elective[] = [];
+  selectedElective: Elective | null = null;
 
   constructor(private electiveService: ElectiveService){}
 
@@ -56,5 +57,9 @@ export class InteractiveScheduleComponent {
       next: (electives: Elective[]) => {this.electiveList = electives;},
       error: (error) => {console.error('Error loading electives: ', error);}
     });
+  }
+
+  onElectiveSelected(elective: Elective) {
+    this.selectedElective = elective;
   }
 }
