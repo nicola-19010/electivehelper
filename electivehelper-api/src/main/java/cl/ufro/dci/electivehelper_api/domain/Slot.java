@@ -8,9 +8,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Slot {
-    private String period;
-    private String day;
-    private String startTime;
-    private String endTime;
-    private String place;
+    private String sloPeriod;
+    private String sloDay;
+    private String sloInitialHour;
+    private String sloFinishHour;
+    private String sloPlace;
 }

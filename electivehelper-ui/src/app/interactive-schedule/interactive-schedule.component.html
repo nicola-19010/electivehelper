@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="schedule-container">
     <div class="table-container">
         <table border="1" width="100%" class="Normal">
@@ -42,41 +41,3 @@
     
 </div>
 
-=======
-<button class="styled-button" (click)="cleanSlots()">Limpiar horario</button>
-<button class="styled-button" (click)="fillSlots()">Llenar horario</button>
-<button class="styled-button" (click)="changeMode()">Cambiar modo</button>
-<br><br>
-<table border="1" width="100%" class="Normal">
-    <tbody>
-        <tr class="header-row">
-            <th width="10%">Periodo</th>
-            @for (day of days; track $index) {
-                <th width="15%">{{ day }}</th>
-            }
-        </tr>
-
-        @for (period of periods; track $index) {
-            <tr class="period-row">
-                <td class="period-cell">
-                    {{ period.periodName }}<br>{{ period.startTime }}<br>{{ period.endTime }}
-                </td>
-                @for (day of days; track $index) {
-                    <td
-                        (click)="selectSlot(day, period)"
-                        [ngClass]="{
-                            'slot-cell': true,
-                            'selected-slot': isSlotSelected(day, period)
-                        }"
-                        [ngStyle]="{
-                            'background-color': isSlotSelected(day, period) ? (mode ? '#d4edd4' : '#edd4d4') : '#ffffff'
-                        }"
-                    >&nbsp;</td>
-                }
-            </tr>
-        }
-    </tbody>
-</table>
-
-<button class="styled-button" (click)="prueba()">Prueba</button>
->>>>>>> c50a7dea3447bfaa30c2f7484b129a9135a66b77
