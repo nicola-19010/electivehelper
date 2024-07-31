@@ -1,6 +1,6 @@
 /.idea/
 /.vscode/
-/electivehelper-ui/.vscode/
+/electivehelper-ui/.vscode
 /electivehelper-ui/node_modules
 
 /electivehelper-api/.idea/
