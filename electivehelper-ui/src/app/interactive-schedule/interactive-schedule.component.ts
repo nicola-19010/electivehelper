@@ -20,7 +20,7 @@ export class InteractiveScheduleComponent {
   selectedSlots: Slot[] = [];
   electiveList: Elective[] = [];
   selectedElective: Elective | null = null;
-  //mode:boolean = true;
+  freeSlotsMode:boolean = true;
 
   constructor(private electiveService: ElectiveService){}
 
@@ -116,9 +116,9 @@ export class InteractiveScheduleComponent {
     return slots;
   }
 
-  // changeMode() {
-  //   this.mode = !this.mode;
-  //   this.cleanSlots();
-  //   console.log(this.mode);
-  // }
+  changeMode() {
+    this.freeSlotsMode = !this.freeSlotsMode;
+    this.cleanSlots();
+    console.log(this.freeSlotsMode);
+  }
 }
