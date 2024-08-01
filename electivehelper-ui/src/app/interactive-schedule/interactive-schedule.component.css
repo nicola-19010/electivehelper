@@ -75,12 +75,15 @@ html, body {
 }
 
 .selected-elective {
-  margin-top: 20px;
   background-color: #ffff00; /* Color amarillo para el slot del electivo seleccionado */
   cursor: default; /* Hace que la celda no sea clickeable */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
+  text-overflow: ellipsis; /* Muestra '...' para indicar que el texto se ha truncado */
+  font-size: clamp(2px, 1vw, 10px);
 }
 
 .styled-button {
+  margin-right: 5px;
   background-color: #4a90e2; /* Color de fondo */
   color: #ffffff; /* Color del texto */
   border: none; /* Sin borde */

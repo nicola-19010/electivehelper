@@ -41,8 +41,6 @@ export default class ElectiveManager {
 
     static getNConflict(slotsSelected : Slot[], eleSlots : Slot[]){
         let nConflict = 0;
-        console.log("Slots selected: ", slotsSelected);
-        console.log("Slots: ", eleSlots);
 
         slotsSelected.forEach(slotSelected => {
             eleSlots.forEach(slot => {

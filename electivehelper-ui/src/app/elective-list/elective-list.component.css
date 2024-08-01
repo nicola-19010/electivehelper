@@ -13,7 +13,7 @@
 .elective-items-container {
   flex: 1;
   overflow-y: auto;
-  height: calc(100vh - 250px); /* Altura disponible, ajustando el espacio ocupado por el filtro */
+  height: calc(100vh - 220px); 
 }
 
 .elective-item {

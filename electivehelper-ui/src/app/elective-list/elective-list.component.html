@@ -17,12 +17,16 @@
             <option value="Online">Online</option>
         </select>
 
-        <button type="button" (click)="aplyFilters()">Buscar</button>
+        <button type="button" (click)="applyFilters()">Buscar</button>
     </form>
 </div>
 
 <div class="elective-items-container">
-    @for (elective of filteredElectives; track $index) {
+    @if(filteredElectives.size == 0) {
+        <p style="color: rgb(80, 15, 15); font-size: 16px; text-align: center; margin: 20px 0;">No se encontraron electivos con estas condiciones.</p>
+    }
+
+    @for (elective of filteredElectives.keys(); track $index) {
     <div class="elective-item">
         <p>{{ elective.eleName }}</p>
         <button (click)="selectElective(elective)">Seleccionar</button>

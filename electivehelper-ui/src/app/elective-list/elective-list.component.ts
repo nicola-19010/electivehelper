@@ -15,7 +15,7 @@ import ElectiveManager from '../utils/ElectiveManager';
 export class ElectiveListComponent {
 
   electiveList: Elective[] = [];
-  filteredElectives: Elective[] = [];
+  filteredElectives: Map<Elective, number> = new Map<Elective, number>();
   @Input() selectedSlots: Slot[] = [];
   @Output() selectedElective = new EventEmitter<Elective>();
   selectedElectiveDetails: Elective | null = null;
@@ -24,7 +24,7 @@ export class ElectiveListComponent {
 
   filterForm: FormGroup = new FormGroup({
     periods: new FormControl(0),
-    modality: new FormControl('all'),
+    modality: new FormControl('Cualquiera'),
   });
 
 
@@ -39,23 +39,26 @@ export class ElectiveListComponent {
   loadElectives() {
     this.electiveService.getAllElectives().subscribe({
       next: (electives: Elective[]) => {
-        this.electiveList = electives; 
-        this.filteredElectives = electives;
+        this.electiveList = electives;
+        this.filteredElectives = ElectiveManager.getElectivesByFreeSlotsWithNConflict(this.selectedSlots, electives);
       },
       error: (error) => {console.error('Error loading electives: ', error);}
     });
   }
 
-  aplyFilters() {
+  applyFilters() {
     const periods = this.filterForm.get('periods')?.value;
     const modality = this.filterForm.get('modality')?.value;
     console.log("periods: ", periods);
     console.log("modality: ", modality);
 
-    let filteredByConflict = ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, periods);
-    let filteredByModality = ElectiveManager.getElectivesByModality(filteredByConflict, modality);
-    this.filteredElectives = filteredByModality;
-    console.log(filteredByModality);
+    this.filteredElectives = ElectiveManager.getElectivesByFreeSlotsWithNConflict(this.selectedSlots, this.electiveList);
+
+    for(let [elective, conflicts] of this.filteredElectives) {
+      if(!((elective.eleMode === modality || modality === "Cualquiera") && conflicts == periods)) {
+        this.filteredElectives.delete(elective);
+      }
+    }
   }
 
   selectElective(elective: Elective) {

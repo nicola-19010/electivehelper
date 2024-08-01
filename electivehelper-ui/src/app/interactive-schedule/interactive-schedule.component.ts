@@ -94,8 +94,10 @@ export class InteractiveScheduleComponent {
     //console.log(ElectiveManager.getElectivesByFreeSlots(this.selectedSlots, this.electiveList, 1));
     console.log(ElectiveManager.getElectivesByFreeSlotsWithNConflict(this.selectedSlots, this.electiveList));
   }
+  
   cleanSlots() {
     this.selectedSlots = [];
+    this.selectedElective = null;
   }
 
   fillSlots(){
@@ -107,7 +109,7 @@ export class InteractiveScheduleComponent {
 
     this.days.forEach(day => {
       this.periods.forEach(period => {
-        slots.push(new Slot(period.periodName, day, period.startTime, period.endTime));
+        slots.push(new Slot(Period.getPeriodNumber(period), day, period.startTime, period.endTime));
       })
     })
 
