@@ -46,8 +46,8 @@ public class ElectiveReader {
     }
 
     private static ArrayList<Slot> createSlots(String day, String hours, String place) {
-        List<String> startHours = Arrays.asList("8:30", "9:40", "10:50", "12:00", "14:30", "15:40", "16:50", "18:00", "19:10", "20:20");
-        List<String> finishHours = Arrays.asList("9:30", "10:40", "11:50", "13:00", "15:30", "16:40", "17:50", "19:00", "20:10", "21:20");
+        List<String> startHours = Arrays.asList("08:30", "09:40", "10:50", "12:00", "14:30", "15:40", "16:50", "18:00", "19:10", "20:20");
+        List<String> finishHours = Arrays.asList("09:30", "10:40", "11:50", "13:00", "15:30", "16:40", "17:50", "19:00", "20:10", "21:20");
 
         String[] electiveHours = hours.replaceAll(" ", "").split("-");
 
