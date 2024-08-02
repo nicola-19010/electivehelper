@@ -7,13 +7,25 @@
 
 .elective-filter {
   background-color: #e1f1ff;
-  padding: 10px;
+  padding: 8px;
 }
 
 .elective-filter label{
-  font-size: 16px; /* Tamaño de fuente */
+  font-size: 18px; /* Tamaño de fuente claro y legible */
+  color: #3972b4; /* No estoy seguro del color*/
 }
 
+.elective-filter button {
+  border: 1px solid #4a90e2; /* Borde azul para combinar con el tema */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 4px 8px; /* Padding interno para mayor comodidad */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  cursor: pointer; /* Cursor de mano para indicar interactividad */
+  transition: border-color 0.3s ease; /* Transición suave para el borde */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+  margin-right: 5px;
+}
 
 .elective-filter select {
   border: 1px solid #4a90e2; /* Borde azul para combinar con el tema */
@@ -40,19 +52,6 @@
   border-color: #357ABD; /* Cambio de color del borde al enfocar */
   outline: none; /* Quitar el borde de enfoque predeterminado */
 }
-
-.elective-filter button {
-  border: 1px solid #4a90e2; /* Borde azul para combinar con el tema */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 4px 8px; /* Padding interno para mayor comodidad */
-  font-size: 16px; /* Tamaño de fuente */
-  color: #333; /* Color del texto */
-  cursor: pointer; /* Cursor de mano para indicar interactividad */
-  transition: border-color 0.3s ease; /* Transición suave para el borde */
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
-  margin-right: 5px;
-}
-
 
 .elective-items-container {
   flex: 1;

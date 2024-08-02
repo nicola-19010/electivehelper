@@ -13,7 +13,7 @@ html, body {
 }
 
 .table-container {
-  flex: 2;
+  flex: 2 1 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -21,7 +21,7 @@ html, body {
 }
 
 .elective-list-container {
-  flex: 1;
+  flex: 1 1 0; 
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Mantener oculto el scroll si el contenido se excede */

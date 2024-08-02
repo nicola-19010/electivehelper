@@ -31,7 +31,8 @@
                         </td>
                         @for (day of days; track $index) {
                             @if (selectedElective && sameDayAndPeriod(selectedElective, day, period.periodName)) {
-                                <td class="selected-elective">{{selectedElective.eleName}}</td>   
+                                <td class="selected-elective" title="{{getElectivePlace(selectedElective, day, period)}}">
+                                    {{selectedElective.eleName}}</td>   
                             }@else {
                                 <td
                                 (click)="selectSlot(day, period)"

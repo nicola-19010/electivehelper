@@ -66,7 +66,7 @@ export class ElectiveListComponent {
 
   selectElective(elective: Elective) {
     this.selectedElective.emit(elective);
-    this.selectedElectiveDetails = elective;
+    this.selectedElectiveDetails = this.selectedElectiveDetails == elective ? null : elective;
     console.log("electivo seleccionado: ",this.selectedElectiveDetails)
   }
 

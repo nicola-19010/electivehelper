@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { Elective } from '../domain/elective';
 import { ElectiveService } from '../service/elective.service';
 import { ElectiveListComponent } from "../elective-list/elective-list.component";
-import ElectiveManager from '../utils/ElectiveManager';
 
 @Component({
   selector: 'app-interactive-schedule',
@@ -61,7 +60,7 @@ export class InteractiveScheduleComponent {
   }
 
   onElectiveSelected(elective: Elective) {
-    this.selectedElective = elective;
+    this.selectedElective = this.selectedElective == elective ? null : elective;
     console.log('Selected elective: ', elective);
   }
 
@@ -74,6 +73,17 @@ export class InteractiveScheduleComponent {
       }
     }
     return false;
+  }
+
+  getElectivePlace(elective: Elective, day: string, period: Period) {
+    let place;
+    elective.eleSlots.forEach(slot => {
+      if(slot.sloDay == day && slot.sloPeriod == Period.getPeriodNumber(period)) {
+        place = slot.sloPlace;
+      }
+    });
+
+    return place;
   }
   
   cleanSlots() {

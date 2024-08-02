@@ -3,7 +3,7 @@ export class Slot{
     sloDay: string;
     startTime: string;
     endTime: string;
-
+    sloPlace: string | undefined;
     constructor(period: string, day: string, startTime: string, endTime: string){
         this.sloPeriod = period;
         this.sloDay = day;
