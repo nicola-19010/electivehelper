@@ -2,16 +2,30 @@ import { Elective } from "../domain/elective";
 import { Slot } from "../domain/slot";
 
 export default class ElectiveManager {
-    static getElectivesByFreeSlotsWithNConflict(slotsSelected : Slot[], electives : Elective[]) {
+    static getElectivesWithNConflict(slotsSelected : Slot[], electives : Elective[], areFreeSlots : boolean) {
         let coincidencesElectives = new Map<Elective, number>();
-
+        console.log("Slots selected: ", slotsSelected);
         electives.forEach((elective) => {
             let nConflict = this.getNConflict(slotsSelected, elective.eleSlots);
-            coincidencesElectives.set(elective, nConflict);
-            
+            nConflict = areFreeSlots ? elective.eleSlots.length - nConflict : nConflict;
+            coincidencesElectives.set(elective, nConflict); 
         });
 
         return coincidencesElectives;
+    }
+
+    static getNConflict(slotsSelected : Slot[], eleSlots : Slot[]){
+        let nConflict = 0;
+
+        slotsSelected.forEach(slotSelected => {
+            eleSlots.forEach(slot => {
+                if(slotSelected.equals(slot)) {
+                    nConflict = nConflict + 1;
+                }
+            });
+        });
+
+        return nConflict;
     }
 
     static getElectivesByNConflict(slotsSelected : Slot[], electives : Elective[], nConflict : number) {
@@ -36,22 +50,6 @@ export default class ElectiveManager {
         });
 
         return coincidencesElectives;
-    }
-
-
-    static getNConflict(slotsSelected : Slot[], eleSlots : Slot[]){
-        let nConflict = 0;
-
-        slotsSelected.forEach(slotSelected => {
-            eleSlots.forEach(slot => {
-                if(slotSelected.equals(slot)) {
-                    nConflict = nConflict + 1;
-                }
-            });
-        });
-
-        return eleSlots.length - nConflict;
-
     }
 
     static hasNConflict(slotsSelected : Slot[], eleSlots : Slot[], conflictLimit : number) {

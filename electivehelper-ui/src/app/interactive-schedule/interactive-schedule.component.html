@@ -1,7 +1,17 @@
 <body>
 <button class="styled-button" (click)="cleanSlots()">Limpiar horario</button>
 <button class="styled-button" (click)="fillSlots()">Llenar horario</button>
-<button class="styled-button" (click)="changeMode()">Cambiar modo</button>
+<button class="mode-toggle-button" (click)="changeMode()" 
+        [ngClass]="{'free-mode': freeSlotsMode, 'occupied-mode': !freeSlotsMode}"
+        [ngStyle]="{
+            'box-shadow': freeSlotsMode ? 'inset 0 0 0 3px rgba(46, 204, 113, 0.5)' : 'inset 0 0 0 3px rgba(231, 76, 60, 0.5)' 
+        }">
+        <span class="icon" *ngIf="freeSlotsMode">🟢</span>
+        <span class="icon" *ngIf="!freeSlotsMode">🔴</span>
+        <span *ngIf="freeSlotsMode">Marcar periodos libres</span>
+        <span *ngIf="!freeSlotsMode">Marcar periodos ocupados</span>
+</button>
+
 <br><br>
 <div class="schedule-container">
     <div class="table-container">
@@ -29,6 +39,9 @@
                                     'slot-cell': true,
                                     'selected-slot': isSlotSelected(day, period)
                                 }"
+                                [ngStyle]="{
+                                    'background-color': isSlotSelected(day, period) ? (freeSlotsMode ? '#d4edd4' : '#edd4d4') : '#ffffff'
+                                }"
                                 >&nbsp;</td>
                             } 
                         }
@@ -38,7 +51,7 @@
         </table>
     </div>
     <div class="elective-list-container">
-        <app-elective-list [selectedSlots]="selectedSlots" (selectedElective)="onElectiveSelected($event)"></app-elective-list>
+        <app-elective-list [selectedSlots]="selectedSlots" [freeSlotsMode]="freeSlotsMode" (selectedElective)="onElectiveSelected($event)"></app-elective-list>
     </div>
 </div>
 

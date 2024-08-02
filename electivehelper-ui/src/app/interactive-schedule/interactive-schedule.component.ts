@@ -75,25 +75,6 @@ export class InteractiveScheduleComponent {
     }
     return false;
   }
-
-  prueba() {
-    // if(this.mode) {
-    //   let aux = this.selectedSlots
-    //   this.selectedSlots = this.getAllSlots();
-
-    //   for (let slot of aux) {
-    //     this.removeSlot(slot);
-    //   }
-      
-    //   console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
-
-    // }else{
-    //   console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
-    // }
-    //console.log(ElectiveManager.getElectivesByNConflict(this.selectedSlots, this.electiveList, 0));
-    //console.log(ElectiveManager.getElectivesByFreeSlots(this.selectedSlots, this.electiveList, 1));
-    console.log(ElectiveManager.getElectivesByFreeSlotsWithNConflict(this.selectedSlots, this.electiveList));
-  }
   
   cleanSlots() {
     this.selectedSlots = [];

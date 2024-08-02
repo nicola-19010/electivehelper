@@ -16,7 +16,8 @@ export class ElectiveListComponent {
 
   electiveList: Elective[] = [];
   filteredElectives: Map<Elective, number> = new Map<Elective, number>();
-  @Input() selectedSlots: Slot[] = [];
+  @Input() selectedSlots : Slot[] = [];
+  @Input() freeSlotsMode! : boolean;
   @Output() selectedElective = new EventEmitter<Elective>();
   selectedElectiveDetails: Elective | null = null;
 
@@ -40,7 +41,7 @@ export class ElectiveListComponent {
     this.electiveService.getAllElectives().subscribe({
       next: (electives: Elective[]) => {
         this.electiveList = electives;
-        this.filteredElectives = ElectiveManager.getElectivesByFreeSlotsWithNConflict(this.selectedSlots, electives);
+        this.filteredElectives = ElectiveManager.getElectivesWithNConflict(this.selectedSlots, electives, this.freeSlotsMode);
       },
       error: (error) => {console.error('Error loading electives: ', error);}
     });
@@ -52,13 +53,15 @@ export class ElectiveListComponent {
     console.log("periods: ", periods);
     console.log("modality: ", modality);
 
-    this.filteredElectives = ElectiveManager.getElectivesByFreeSlotsWithNConflict(this.selectedSlots, this.electiveList);
+    this.filteredElectives = ElectiveManager.getElectivesWithNConflict(this.selectedSlots, this.electiveList, this.freeSlotsMode);
 
     for(let [elective, conflicts] of this.filteredElectives) {
       if(!((elective.eleMode === modality || modality === "Cualquiera") && conflicts == periods)) {
         this.filteredElectives.delete(elective);
       }
     }
+
+    console.log("Filtered electives: ", this.filteredElectives);
   }
 
   selectElective(elective: Elective) {
