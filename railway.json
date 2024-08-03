@@ -1,0 +1,14 @@
+{
+    "frontend": {
+      "path": "electivehelper-ui",
+      "buildCommand": "npm install && npm run build --prod",
+      "startCommand": "npx serve -s build",
+      "buildOutput": "build"
+    },
+    "backend": {
+      "path": "electivehelper-api",
+      "buildCommand": "./mvnw package -DskipTests",
+      "startCommand": "java -jar target/*.jar"
+    }
+}
+  
