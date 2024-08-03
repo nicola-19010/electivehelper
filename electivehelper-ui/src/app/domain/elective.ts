@@ -7,13 +7,15 @@ export class Elective{
  eleModule: string;
  eleMode: string;
  eleSlots: Slot[];
+ eleInstructor: string;
 
- constructor(eleCode: string, eleName: string, eleModule: string, eleMode: string, eleSlots: Slot[]){
+ constructor(eleCode: string, eleName: string, eleModule: string, eleMode: string, eleSlots: Slot[], eleInstructor: string){
      this.eleCode = eleCode;
      this.eleName = eleName;
      this.eleModule = eleModule;
      this.eleMode = eleMode;
      this.eleSlots = eleSlots;
+     this.eleInstructor = eleInstructor
  }
 
  equals(elective: Elective): boolean{
