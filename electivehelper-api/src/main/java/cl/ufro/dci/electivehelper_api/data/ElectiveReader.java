@@ -29,7 +29,7 @@ public class ElectiveReader {
                 String[] electiveData = line.split(";");
                 if(!electiveData[0].isEmpty()) {
                     electivePlace = electiveData[6];
-                    elective = new Elective(electiveData[0], electiveData[1],electiveData[2], electiveData[3], createSlots(electiveData[4],electiveData[5], electiveData[6]));
+                    elective = new Elective(electiveData[0], electiveData[1],electiveData[2], electiveData[3], createSlots(electiveData[4],electiveData[5], electiveData[6]), electiveData[7]);
                     electiveList.add(elective);
                 }else if(electiveData.length == N_DATA_ELECTIVE){
                     elective.addSlots(createSlots(electiveData[4],electiveData[5], electiveData[6]));

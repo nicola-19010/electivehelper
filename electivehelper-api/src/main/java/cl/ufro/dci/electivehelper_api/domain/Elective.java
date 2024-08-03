@@ -16,6 +16,7 @@ public class Elective {
     private String eleModule;
     private String eleMode;
     private ArrayList<Slot> eleSlots;
+    private String eleInstructor;
 
     public void addSlots(ArrayList<Slot> slots) {
         for(Slot slot : slots) {
